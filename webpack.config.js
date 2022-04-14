@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const path = require('path')
 module.exports = {
     // モード値を production に設定すると最適化された状態で、
     // development に設定するとソースマップ有効でJSファイルが出力される
@@ -26,6 +26,9 @@ module.exports = {
     },
     // import 文で .ts ファイルを解決するため
     resolve: {
+      alias: {
+        "@": path.resolve(__dirname, 'src')
+      },
       extensions: [".ts", ".js"]
     },
     plugins: [
